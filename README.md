@@ -1,1 +1,1 @@
-# Project-1-ELKStackDeployment
+# Project 1 - ELK Stack 
