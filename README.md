@@ -20,31 +20,37 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network. The off-loading function of a load balancer defends an organization against distributed denial-of-service DDoS attacks attacks. This is ensured through distribution of incoming traffic among multiple web servers. Access control through jump box ensures that only authorized users are able to connect to the internal network. A jump box, or a jump server is a machine on a network used to manage access to devices.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems on the network and system log and metric files, such as application logs, service logs, event logs, authentication logs, attempted SSH logins, and escalation failures, etc.
+
+The three web servers, Web-1, Web-2, and Web-3, have Filebeat and Metricbeat installed on them. Filebeat is a lightweight shipper for forwarding and centralizing log data. It monitors the log files, collects log events, and forwards them to the Elasticsearch/Logstash for indexing. Whereas, Metricbeat periodically collects metrics from the operating system and from services running on the server. It takes those metrics and statistics and ships them to the Elasticsearch/Logstash.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Name     | Function   | Public IP Address | Private IP Address | Operating System |
+|----------|------------|-------------------|--------------------|------------------|
+| Jump Box | Gateway    | 52.151.56.202     | 10.0.0.4           | Linux            |
+| Web-1    | Web Server | N/A               | 10.0.0.5           | Linux            |
+| Web-2    | Web Server | N/A               | 10.0.0.6           | Linux            |
+| Web-3    | Web Server | N/A               | 10.0.0.7           | Linux            |
+| ELK      | Monitoring | 40.123.36.51      | 10.1.0.4           | Linux            |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the jump box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP address:
+185.240.244.164.
 
-Machines within the network can only be accessed by _____.
+Machines within the network can only be accessed by each other. The Web-1, Web-2, and Web-3 VMs can send traffic to the ELK server. 
+
+
+
+
+
+
+
 - _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
 
 A summary of the access policies in place can be found in the table below.
