@@ -63,7 +63,7 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because there is no need to install any other software on the systems you want to automate. Neither is there any need to set up a separate management structure.
 
-The [install-elk-server.yml](https://github.com/tra2116/Project-1-ELKStackDeployment/blob/main/Ansible%20Scripts/Configure-ELK-Stack/install-elk-server.yml) playbook implements the following tasks:
+The [elk-playbook.yml](https://github.com/tra2116/Project-1-ELKStackDeployment/blob/main/Ansible%20Scripts/Configure-ELK-Stack/install-elk-server.yml) implements the following tasks:
 - Install Docker
 - Install Docker Python Module
 - Increase virtual memory
