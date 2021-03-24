@@ -247,11 +247,7 @@ $ cd /etc/ansible
 $ mkdir files
 $ git clone https://github.com/tra2116/project-1-elkstackdeployment.git
 # Move Playbooks and hosts file into `/etc/ansible`
-$ cp project-1-elkstackdeployment/playbooks/* .
-$ cp project-1-elkstackdeployment/files/* ./files
 ```
-
-This will copy the playbook files to the correct directory. 
 
 Next, you must update the `/etc/ansible/hosts` file to include the IP address of the Elk Server VM and webservers. Run the commands below:
 
