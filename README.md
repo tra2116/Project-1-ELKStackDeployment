@@ -288,4 +288,4 @@ To verify success, navigate to http://[40.123.36.51]:5601/app/kibana to check th
 - `ansible-playbook install-elk-server.yml` # To install and configure ELK. 
 - `ansible-playbook filebeat-playbook.yml` # To install and configure Filebeat. 
 - `ansible-playbook metricbeat-playbook.yml` # To install and configure Metricbeat. 
-_ Open a browser on personal workstation, navigate to (ELK-Server-PublicIP:5601/app/kibana) # This will bring up Kibana Web Portal.
+- Open a browser on personal workstation, navigate to (ELK-Server-PublicIP:5601/app/kibana) # This will bring up Kibana Web Portal.
