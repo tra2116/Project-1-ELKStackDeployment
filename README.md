@@ -72,7 +72,7 @@ The following screenshot displays the result of running `docker ps` after succes
 <img width="1357" alt="Screen Shot 2021-03-20 at 4 29 28 PM" src="https://user-images.githubusercontent.com/65363042/112236412-c491f100-8c16-11eb-828b-2cf30adaac36.png">
 
 The ELK playbook is duplicated below:
-`
+```
 ---
 - name: Configure Elk VM with Docker
   hosts: elk
@@ -124,7 +124,8 @@ The ELK playbook is duplicated below:
     - name: Enable Docker on Boot
       systemd:
         name: docker
-        enabled: yes`
+        enabled: yes
+```
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
