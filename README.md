@@ -71,6 +71,61 @@ The [install-elk-server.yml](https://github.com/tra2116/Project-1-ELKStackDeploy
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 <img width="1357" alt="Screen Shot 2021-03-20 at 4 29 28 PM" src="https://user-images.githubusercontent.com/65363042/112236412-c491f100-8c16-11eb-828b-2cf30adaac36.png">
 
+The ELK playbook is duplicated below:
+`
+---
+- name: Configure Elk VM with Docker
+  hosts: elk
+  remote_user: azadmin
+  become: true
+  tasks:
+
+    # Use apt module
+    - name: Install docker.io
+      apt:
+        update_cache: yes
+        name: docker.io
+        state: present
+
+      # Use apt module
+    - name: Install pip3
+      apt:
+        force_apt_get: yes
+        name: python3-pip
+        state: present
+
+      # Use pip module
+    - name: Install Docker python module
+      pip:
+        name: docker
+        state: present
+
+      # Use sysctl module
+    - name: Use more memory
+      sysctl:
+        name: vm.max_map_count
+        value: "262144"
+        state: present
+        reload: yes
+
+      # Use docker_container module
+    - name: download and launch a docker elk container
+      docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        published_ports:
+          - 5601:5601
+          - 9200:9200
+          - 5044:5044
+
+      # Use systemd module
+    - name: Enable Docker on Boot
+      systemd:
+        name: docker
+        enabled: yes`
+
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - Web-1 at 10.0.0.5
@@ -89,13 +144,44 @@ These Beats allow us to collect the following information from each machine:
 <img width="1360" alt="Screen Shot 2021-03-20 at 6 33 21 PM" src="https://user-images.githubusercontent.com/65363042/112236148-3f0e4100-8c16-11eb-8e27-f8e0de63f539.png">
 
 ### Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+In order to use the playbook, you will need to have an Ansible control node already configured. I had jump box provisioned for this purpose.  
 
-SSH into the control node and follow the steps below:
-- Copy the configuration file from your ansible container to your Web VMs.
-- Update the /etc/ansible/hosts file to include the IP address of the Elk Server VM and webservers.
-- Run the playbook, and navigate to http://[40.123.36.51]:5601/app/kibana to check that the installation worked as expected.
-- 
+To use the playbooks, SSH into the control node and follow the steps: 
+- Copy the playbooks to the Ansible control node.
+- Run each playbook on the appropriate targets.
+
+The easiest way to copy the playbooks from this repository would be to clone them and copy the configuration file from your ansible container to your Web VMs.
+`
+$ cd /etc/ansible
+$ mkdir files
+$ git clone https://github.com/tra2116/project-1-elkstackdeployment.git
+# Move Playbooks and hosts file into `/etc/ansible`
+$ cp project-1-elkstackdeployment/playbooks/* .
+$ cp project-1-elkstackdeployment/files/* ./files
+`
+This will copy the playbook files to the correct directory. 
+
+Next, you must update the `/etc/ansible/hosts` file to include the IP address of the Elk Server VM and webservers. Run the commands below:
+`
+$ cd /etc/ansible
+$ nano hosts
+# Modify the hosts file
+`
+Eventually, hosts file will look like this. Note:_Your IPs might be different._
+
+<img width="1440" alt="Screen Shot 2021-03-20 at 3 36 49 PM" src="https://user-images.githubusercontent.com/65363042/112308171-39494780-8c78-11eb-8208-ca59eb892cb4.png">
+
+After this, run the playbook. Commands below run the playbook:
+
+` 
+$ cd /etc/ansible
+$ ansible-playbook dvwa-playbook.yml
+$ ansible-playbook install-elk-server.yml
+$ ansible-playbook filebeat-playbook.yml
+$ ansible-playbook metricbeat-playbook.yml
+` 
+To verify success, navigate to http://[40.123.36.51]:5601/app/kibana to check that the installation worked as expected. 
+
 - Which file is the playbook? 
 - Where do you copy it?_
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
