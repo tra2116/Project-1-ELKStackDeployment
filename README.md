@@ -147,7 +147,7 @@ These Beats allow us to collect the following information from each machine:
 
 <img width="1360" alt="Screen Shot 2021-03-20 at 6 33 21 PM" src="https://user-images.githubusercontent.com/65363042/112236148-3f0e4100-8c16-11eb-8e27-f8e0de63f539.png">
 
-The playbooks below install the Filebeat and Metricbeat on the target hosts.
+The Filebeat playbook is duplicated below:
 
 ```
 ---
@@ -189,6 +189,7 @@ The playbooks below install the Filebeat and Metricbeat on the target hosts.
       enabled: yes
 ```
 
+The Metricbeat playbook is duplicated below:
 
 ```
 ---
