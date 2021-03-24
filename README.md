@@ -69,7 +69,8 @@ The [install-elk-server.yml](https://github.com/tra2116/Project-1-ELKStackDeploy
 - Launch ELK container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
-![Screen Shot 2021-03-23 at 4 19 10 PM](https://user-images.githubusercontent.com/65363042/112235440-07eb6000-8c15-11eb-8dec-eff509861168.png)
+<img width="1370" alt="Screen Shot 2021-03-20 at 4 29 28 PM" src="https://user-images.githubusercontent.com/65363042/112236309-97454300-8c16-11eb-8964-bbc5a16aaf4b.png">
+
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
