@@ -29,7 +29,7 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The three web servers, Web-1, Web-2, and Web-3, have Filebeat and Metricbeat installed on them. Filebeat is a lightweight shipper for forwarding and centralizing log data. It monitors the log files, collects log events, and forwards them to the Elasticsearch/Logstash for indexing. Whereas, Metricbeat periodically collects metrics from the operating system and from services running on the server. It takes those metrics and statistics and ships them to the Elasticsearch/Logstash.
 
 The configuration details of each machine may be found below.
-
+```
 | Name     | Function   | Public IP Address | Private IP Address | Operating System |
 |----------|------------|-------------------|--------------------|------------------|
 | Jump Box | Gateway    | 52.151.56.202     | 10.0.0.4           | Linux            |
@@ -37,6 +37,7 @@ The configuration details of each machine may be found below.
 | Web-2    | Web Server | N/A               | 10.0.0.6           | Linux            |
 | Web-3    | Web Server | N/A               | 10.0.0.7           | Linux            |
 | ELK      | Monitoring | 40.123.36.51      | 10.1.0.4           | Linux            |
+```
 
 ### Access Policies
 
@@ -48,7 +49,7 @@ Only the jump box machine can accept connections from the Internet. Access to th
 Machines within the network can only be accessed by accessing the ansible container in the jump box VM. The Web-1, Web-2, and Web-3 VMs can send traffic to the ELK server. Access to ELK server is only allowed from IP address 185.240.244.164, my personal machine, and the jump box VM at IP 10.1.0.4. 
 
 A summary of the access policies in place can be found in the table below.
-
+```
 | Name     | Publicly Accessible | Allowed IP Address         |
 |----------|---------------------|----------------------------|
 | Jump Box | Yes                 | 185.240.244.164            |
@@ -56,6 +57,7 @@ A summary of the access policies in place can be found in the table below.
 | Web-2    | No                  | 10.0.0.4                   |
 | Web-3    | No                  | 10.0.0.4                   |
 | ELK      | No                  | 10.0.0.4, 185.240.244.164  |
+```
 
 ### Elk Configuration
 
@@ -274,10 +276,5 @@ $ ansible-playbook metricbeat-playbook.yml
 ```
 
 To verify success, navigate to http://[40.123.36.51]:5601/app/kibana to check that the installation worked as expected. 
-
-- Which file is the playbook? 
-- Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running? http://[your.ELK-VM.External.IP]:5601/app/kibana.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
