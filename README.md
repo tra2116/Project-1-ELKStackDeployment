@@ -270,7 +270,7 @@ After this, run the playbook. Commands below run the playbook:
 ```
 $ cd /etc/ansible
 $ ansible-playbook dvwa-playbook.yml
-$ ansible-playbook install-elk-server.yml
+$ ansible-playbook elk-playbook.yml
 $ ansible-playbook filebeat-playbook.yml
 $ ansible-playbook metricbeat-playbook.yml
 ```
@@ -285,7 +285,7 @@ To verify success, navigate to http://[40.123.36.51]:5601/app/kibana to check th
 - `sudo docker attach container_name` # To attach the container.
 - `cd /etc/ansible` # Playbook directory.
 - `ansible-playbook dvwa-playbook.yml` # To install and configure dvwa. 
-- `ansible-playbook install-elk-server.yml` # To install and configure ELK. 
+- `ansible-playbook elk-playbook.yml` # To install and configure ELK. 
 - `ansible-playbook filebeat-playbook.yml` # To install and configure Filebeat. 
 - `ansible-playbook metricbeat-playbook.yml` # To install and configure Metricbeat. 
 - Open a browser on personal workstation, navigate to (ELK-Server-PublicIP:5601/app/kibana) # This will bring up Kibana Web Portal.
