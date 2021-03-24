@@ -81,9 +81,10 @@ We have installed the following Beats on these machines: - Filebeat - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
 - Filebeat: Detects changes to the filesystem.
-- Metricbeat: Detects changes to the system metrics.
 
 <img width="1342" alt="  d " src="https://user-images.githubusercontent.com/65363042/112236137-3c135080-8c16-11eb-96ce-d9c7f44938ad.png">
+
+- Metricbeat: Detects changes to the system metrics.
 
 <img width="1360" alt="Screen Shot 2021-03-20 at 6 33 21 PM" src="https://user-images.githubusercontent.com/65363042/112236148-3f0e4100-8c16-11eb-8e27-f8e0de63f539.png">
 
@@ -91,13 +92,13 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
-
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
+- Copy the configuration file from your ansible container to your Web VMs.
+- Update the /etc/ansible/hosts file to include the IP address of the Elk Server VM and webservers.
+- Run the playbook, and navigate to http://[40.123.36.51]:5601/app/kibana to check that the installation worked as expected.
+- 
+- Which file is the playbook? 
+- Where do you copy it?_
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- _Which URL do you navigate to in order to check that the ELK server is running? http://[your.ELK-VM.External.IP]:5601/app/kibana.
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
