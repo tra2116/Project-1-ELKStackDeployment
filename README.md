@@ -277,4 +277,15 @@ $ ansible-playbook metricbeat-playbook.yml
 
 To verify success, navigate to http://[40.123.36.51]:5601/app/kibana to check that the installation worked as expected. 
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+### Useful Commands to setup the infrastructure depicted in the Network Diagram:
+
+- `ssh -i <path_to_the_ssh_private_key> user_name@jumpbox(publicIP)` # To ssh into the jumpbox.
+- `sudo docker container list -a` # To locate the ansible container.
+- `sudo docker start container_name` # To start the container.
+- `sudo docker attach container_name` # To attach the container.
+- `cd /etc/ansible` # Playbook directory.
+- `ansible-playbook dvwa-playbook.yml` # To install and configure dvwa. 
+- `ansible-playbook install-elk-server.yml` # To install and configure ELK. 
+- `ansible-playbook filebeat-playbook.yml` # To install and configure Filebeat. 
+- `ansible-playbook metricbeat-playbook.yml` # To install and configure Metricbeat. 
+_ Open a browser on personal workstation, navigate to (ELK-Server-PublicIP:5601/app/kibana) # This will bring up Kibana Web Portal.
