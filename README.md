@@ -69,9 +69,11 @@ The [install-elk-server.yml](https://github.com/tra2116/Project-1-ELKStackDeploy
 - Launch ELK container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+
 <img width="1357" alt="Screen Shot 2021-03-20 at 4 29 28 PM" src="https://user-images.githubusercontent.com/65363042/112236412-c491f100-8c16-11eb-828b-2cf30adaac36.png">
 
 The ELK playbook is duplicated below:
+
 ```
 ---
 - name: Configure Elk VM with Docker
@@ -152,27 +154,32 @@ To use the playbooks, SSH into the control node and follow the steps:
 - Run each playbook on the appropriate targets.
 
 The easiest way to copy the playbooks from this repository would be to clone them and copy the configuration file from your ansible container to your Web VMs.
-`
+
+```
 $ cd /etc/ansible
 $ mkdir files
 $ git clone https://github.com/tra2116/project-1-elkstackdeployment.git
 # Move Playbooks and hosts file into `/etc/ansible`
 $ cp project-1-elkstackdeployment/playbooks/* .
 $ cp project-1-elkstackdeployment/files/* ./files
-`
+```
+
 This will copy the playbook files to the correct directory. 
 
 Next, you must update the `/etc/ansible/hosts` file to include the IP address of the Elk Server VM and webservers. Run the commands below:
-`
+
+```
 $ cd /etc/ansible
 $ nano hosts
 # Modify the hosts file
-`
+```
+
 Eventually, hosts file will look like this. Note:_Your IPs might be different._
 
 <img width="1440" alt="Screen Shot 2021-03-20 at 3 36 49 PM" src="https://user-images.githubusercontent.com/65363042/112308171-39494780-8c78-11eb-8208-ca59eb892cb4.png">
 
 After this, run the playbook. Commands below run the playbook:
+
 ```
 $ cd /etc/ansible
 $ ansible-playbook dvwa-playbook.yml
