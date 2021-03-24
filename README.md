@@ -172,13 +172,14 @@ Eventually, hosts file will look like this. Note:_Your IPs might be different._
 <img width="1440" alt="Screen Shot 2021-03-20 at 3 36 49 PM" src="https://user-images.githubusercontent.com/65363042/112308171-39494780-8c78-11eb-8208-ca59eb892cb4.png">
 
 After this, run the playbook. Commands below run the playbook:
+```
+$ cd /etc/ansible
+$ ansible-playbook dvwa-playbook.yml
+$ ansible-playbook install-elk-server.yml
+$ ansible-playbook filebeat-playbook.yml
+$ ansible-playbook metricbeat-playbook.yml
+```
 
-`$ cd /etc/ansible`
-`$ ansible-playbook dvwa-playbook.yml`
-`$ ansible-playbook install-elk-server.yml`
-`$ ansible-playbook filebeat-playbook.yml`
-`$ ansible-playbook metricbeat-playbook.yml`
-` 
 To verify success, navigate to http://[40.123.36.51]:5601/app/kibana to check that the installation worked as expected. 
 
 - Which file is the playbook? 
