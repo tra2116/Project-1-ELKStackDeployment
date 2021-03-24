@@ -130,6 +130,7 @@ The ELK playbook is duplicated below:
 ```
 
 ### Target Machines & Beats
+
 This ELK server is configured to monitor the following machines:
 - Web-1 at 10.0.0.5
 - Web-2 at 10.0.0.6
@@ -145,6 +146,89 @@ These Beats allow us to collect the following information from each machine:
 - Metricbeat: Detects changes to the system metrics.
 
 <img width="1360" alt="Screen Shot 2021-03-20 at 6 33 21 PM" src="https://user-images.githubusercontent.com/65363042/112236148-3f0e4100-8c16-11eb-8e27-f8e0de63f539.png">
+
+The playbooks below install the Filebeat and Metricbeat on the target hosts.
+
+```
+---
+- name: installing and launching filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+
+    # Use command module
+  - name: download filebeat deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+ 
+    # Use command module
+  - name: install filebeat deb
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+
+    # Use copy module 
+  - name: drop in filebeat.yml 
+    copy:
+      src: /etc/ansible/files/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+
+    # Use command module
+  - name: Enable and Configure System Module
+    command: filebeat modules enable system
+
+    # Use command module
+  - name: setup filebeat
+    command: filebeat setup
+
+    # Use command module
+  - name: start filebeat service
+    command: service filebeat start
+
+    # Use systemd module
+  - name: enable service filebeat on boot
+    systemd:
+      name: filebeat
+      enabled: yes
+```
+
+
+```
+---
+- name: Install metric beat
+  hosts: webservers
+  become: true
+  tasks:
+  
+    # Use command module
+  - name: Download metricbeat
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.4.0-amd64.deb
+
+    # Use command module
+  - name: install metricbeat
+    command: dpkg -i metricbeat-7.4.0-amd64.deb
+
+    # Use copy module
+  - name: drop in metricbeat config
+    copy:
+      src: /etc/ansible/files/metricbeat-config.yml
+      dest: /etc/metricbeat/metricbeat.yml
+
+    # Use command module
+  - name: enable and configure docker module for metric beat
+    command: metricbeat modules enable docker
+
+    # Use command module
+  - name: setup metric beat
+    command: metricbeat setup
+
+    # Use command module
+  - name: start metric beat
+    command: service metricbeat start
+
+    # Use systemd module
+  - name: enable service metricbeat on boot
+    systemd:
+      name: metricbeat
+      enabled: yes
+```
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. I had jump box provisioned for this purpose.  
