@@ -147,7 +147,7 @@ These Beats allow us to collect the following information from each machine:
 
 - Metricbeat: Detects changes to the system metrics.
 
-<img width="1438" alt="45" src="https://user-images.githubusercontent.com/65363042/112856080-70a36400-907d-11eb-84bd-a19b960623e6.png">
+<img width="1423" alt="45" src="https://user-images.githubusercontent.com/65363042/112856366-b7915980-907d-11eb-905e-9879206ed2aa.png">
 
 The Filebeat playbook is duplicated below:
 
