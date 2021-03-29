@@ -143,11 +143,11 @@ We have installed the following Beats on these machines: - Filebeat - Metricbeat
 These Beats allow us to collect the following information from each machine:
 - Filebeat: Detects changes to the filesystem.
 
-<img width="1342" alt="  d " src="https://user-images.githubusercontent.com/65363042/112236137-3c135080-8c16-11eb-96ce-d9c7f44938ad.png">
+<img width="1437" alt="43" src="https://user-images.githubusercontent.com/65363042/112856047-67b29280-907d-11eb-8faf-a41273bdf093.png">
 
 - Metricbeat: Detects changes to the system metrics.
 
-<img width="1360" alt="Screen Shot 2021-03-20 at 6 33 21 PM" src="https://user-images.githubusercontent.com/65363042/112236148-3f0e4100-8c16-11eb-8e27-f8e0de63f539.png">
+<img width="1423" alt="45" src="https://user-images.githubusercontent.com/65363042/112856366-b7915980-907d-11eb-905e-9879206ed2aa.png">
 
 The Filebeat playbook is duplicated below:
 
@@ -271,7 +271,7 @@ $ ansible-playbook filebeat-playbook.yml
 $ ansible-playbook metricbeat-playbook.yml
 ```
 
-To verify success, navigate to http://[40.123.36.51]:5601/app/kibana to check that the installation worked as expected. 
+To verify success, navigate to 'http://[ELK-Server-PublicIP]:5601/app/kibana' to check that the installation worked as expected. 
 
 ### Useful Commands to setup the infrastructure depicted in the Network Diagram:
 
@@ -284,4 +284,4 @@ To verify success, navigate to http://[40.123.36.51]:5601/app/kibana to check th
 - `ansible-playbook elk-playbook.yml` # To install and configure ELK. 
 - `ansible-playbook filebeat-playbook.yml` # To install and configure Filebeat. 
 - `ansible-playbook metricbeat-playbook.yml` # To install and configure Metricbeat. 
-- Open a browser on personal workstation, navigate to (ELK-Server-PublicIP:5601/app/kibana) # This will bring up Kibana Web Portal.
+- Open a browser on personal workstation, navigate to 'http://[ELK-Server-PublicIP]:5601/app/kibana' # This will bring up Kibana Web Portal.
