@@ -143,11 +143,11 @@ We have installed the following Beats on these machines: - Filebeat - Metricbeat
 These Beats allow us to collect the following information from each machine:
 - Filebeat: Detects changes to the filesystem.
 
-<img width="1342" alt="  d " src="https://user-images.githubusercontent.com/65363042/112236137-3c135080-8c16-11eb-96ce-d9c7f44938ad.png">
+<img width="1437" alt="43" src="https://user-images.githubusercontent.com/65363042/112856047-67b29280-907d-11eb-8faf-a41273bdf093.png">
 
 - Metricbeat: Detects changes to the system metrics.
 
-<img width="1360" alt="Screen Shot 2021-03-20 at 6 33 21 PM" src="https://user-images.githubusercontent.com/65363042/112236148-3f0e4100-8c16-11eb-8e27-f8e0de63f539.png">
+<img width="1438" alt="45" src="https://user-images.githubusercontent.com/65363042/112856080-70a36400-907d-11eb-84bd-a19b960623e6.png">
 
 The Filebeat playbook is duplicated below:
 
